@@ -35,6 +35,135 @@ li a:hover {
     </style>
     </body>
 </html>
+  </body>
+    <h1> This is my game<h1>
+       <script type="text/processing">
+        PImage bg, sonic, start, topPipe, bottomPipe;
+        int bgx, bgy, sx, sy, g, Vsy;
+        int[] pipeX, pipeY;
+        int gameState, score;
+
+        void setup()
+        {
+          size(800,500);
+          bg = loadImage("./img/bg.png");
+          sonic = loadImage("./img/supersonic.png");
+          topPipe = loadImage("./img/topPipe.png");
+          bottomPipe = loadImage("./img/bottomPipe.png");
+          sx = 100;
+          sy = 50;
+          g = 1;
+          pipeX = new int[4];   //[0,0,0,0]
+          pipeY = new int[pipeX.length];
+          //Populate The ARRAY WITH VAlUES
+          for( int i = 0; i < pipeX. length; i++)
+          {
+            pipeX[i] =  width + 200*i;
+            pipeY[i] = (int)random(-350,0);
+          }
+          gameState = -1;
+        }
+        //MAINLOOP
+        void draw()
+         {
+            if(gameState == -1);
+         }
+        void startscreen()
+        {
+          {
+            startscreen();
+          }
+          {
+           setBg();
+           setPipes();
+           sonic();
+           score();
+          }
+        }
+        {
+           if(gameState==0)
+           {
+            fill(255);
+            text("YOU LOSE",20,100);
+           }
+        }
+
+        void score()
+        {
+          fill(0);
+          textSize(32);
+          text("Score: " + score, width -170, 40);
+        }
+
+        {
+          image(start, 0,0);
+          if(mousePressed)
+          {
+           sy = height/2;
+          }
+          {
+            if(gameState==0);
+          }
+        }
+
+        void setPipes()
+        {
+          //Move the Pipes
+          for( int i = 0; i < pipeX. length; i++)
+          {
+           image(topPipe, pipeX[i], pipeY[i]);
+           image(bottomPipe,pipeX[i], pipeY[i] + 480);
+           pipeX[i]-= 4;
+           if(pipeX[i] < -200)
+           {
+             pipeX[i] = width;
+           }
+           if(sx > pipeX[i]-56 && sx < pipeX[i] + 92)
+           {
+             if(!(sy > pipeY[i] + 449 && sy < pipeY[i] + 449 + 231))
+             {
+               gameState = 1;
+             }
+             else if (sx==pipeX[i] || sx == pipeX[i] +1)
+             {
+               score++;
+             }
+          } 
+        }
+
+
+        }
+
+        void sonic()
+        {
+          image(sonic, sx, sy);
+           sy = sy + Vsy;
+           Vsy = Vsy + g;
+           if(sy > height || sy < 0)
+           {
+             text("Sonic where did you go...?", 40, 34);
+             gameState=1;
+           }
+        }
+
+        void mousePressed()
+        {
+          Vsy = -15;
+        } 
+        void setBg()
+        {
+           image(bg, bgx, bgy);
+          image(bg, bgx + bg.width, bgy);
+          bgx = bgx - 1;
+          if(bgx < -bg.width)
+          {
+            bgx = 0; //Resets it once first image is done
+          }
+        }
+
+      </script>
+  <body>
+
 <ul>
   <li><a href="index.html">Home</a></li> 
   <li><a href="projects.html">Projects</a></li>
