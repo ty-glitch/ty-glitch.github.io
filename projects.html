@@ -36,10 +36,17 @@ li a:hover {
     </body>
 </html>
 
-  <h1> This is my game</h1>
-
-    <script type="text/processing">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Processing Demo</title>
+      <script type="text/javascript" src="js/processing.js"></script>
+  </head>
+  
+  <body>
+    <h1>PFlappy super Sonic</h1>
+    <p>sonics dodges pipes</p>
     
+    <script type="text/processing">
         PImage bg, sonic, start, topPipe, bottomPipe;
         int bgx, bgy, sx, sy, g, Vsy;
         int[] pipeX, pipeY;
@@ -162,9 +169,12 @@ li a:hover {
             bgx = 0; //Resets it once first image is done
           }
         }
-
-      </script>
-
+    </script>
+    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+    
+  </body>
+  
+</html>
 <ul>
   <li><a href="index.html">Home</a></li> 
   <li><a href="projects.html">Projects</a></li>
@@ -172,3 +182,4 @@ li a:hover {
   <li><a href="gallery.html">Gallery</a></li>
   <li><a href="about.html">About</a></li>
 </ul>
+
